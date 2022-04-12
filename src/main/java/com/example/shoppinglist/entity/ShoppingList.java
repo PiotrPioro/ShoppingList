@@ -22,6 +22,6 @@ public class ShoppingList {
 
     private String name;
 
-    @OneToMany
+    @ManyToMany
     private List<Product> productList;
 }

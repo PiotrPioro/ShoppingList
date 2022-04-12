@@ -42,6 +42,6 @@ GET http://localhost:8080/shoppingList/showAllShoppingLists
 
 ###
 
-PUT http://localhost:8080/shoppingList/addProduct?id=1&productId=4
+PUT http://localhost:8080/shoppingList/addProduct?id=3&productId=4
 
 ###
