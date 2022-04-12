@@ -13,7 +13,7 @@ public class ProductService {
     private final ProductRepository productRepository;
 
     public Product getProductById(Long id) {
-        return productRepository.getById(id);
+        return productRepository.findProductById(id);
     }
 
     public Product addProduct(Product product) {

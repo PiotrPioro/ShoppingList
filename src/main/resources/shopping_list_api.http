@@ -1,0 +1,47 @@
+POST http://localhost:8080/product/add
+Content-Type: application/json
+
+{
+  "name" : "masło",
+  "quantity" : 1,
+  "description" : "notatka"
+}
+
+###
+
+POST http://localhost:8080/shoppingList/add
+Content-Type: application/json
+
+{
+  "name" : "budowlany"
+}
+
+###
+
+DELETE http://localhost:8080/product/delete?id=3
+
+###
+
+DELETE http://localhost:8080/shoppingList/delete?id=2
+
+###
+
+GET http://localhost:8080/product/show?id=3
+
+###
+
+GET http://localhost:8080/shoppingList/show?id=1
+
+###
+
+GET http://localhost:8080/product/showAll
+
+###
+
+GET http://localhost:8080/shoppingList/showAllShoppingLists
+
+###
+
+PUT http://localhost:8080/shoppingList/addProduct?id=1&productId=4
+
+###

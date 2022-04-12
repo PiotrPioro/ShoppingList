@@ -1,11 +1,13 @@
 package com.example.shoppinglist.service;
 
 import com.example.shoppinglist.entity.Product;
+import com.example.shoppinglist.repository.ProductRepository;
 import com.example.shoppinglist.repository.ShoppingListRepository;
 import com.example.shoppinglist.entity.ShoppingList;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.LinkedList;
 import java.util.List;
 
 @Service
@@ -13,9 +15,10 @@ import java.util.List;
 public class ShoppingListService {
 
     private final ShoppingListRepository shoppingListRepository;
+    private final ProductRepository productRepository;
 
     public ShoppingList getShoppingListById(Long id) {
-        return shoppingListRepository.getById(id);
+        return shoppingListRepository.findShoppingListById(id);
     }
 
     public ShoppingList addShoppingList(ShoppingList shoppingList) {
@@ -34,9 +37,16 @@ public class ShoppingListService {
         return shoppingListRepository.findAll();
     }
 
-    public void addProductToList(Long id, Product product){
+    public void addProductToList(Long id, Long productId){
+
         ShoppingList shoppingList = getShoppingListById(id);
-        List<Product> productList = shoppingList.getProductList();
+        Product product = productRepository.getById(productId);
+        List<Product> productList = new LinkedList<>();
+
+        if(shoppingList.getProductList() != null){
+            productList = shoppingList.getProductList();
+        }
+
         productList.add(product);
         shoppingList.setProductList(productList);
         update(shoppingList);

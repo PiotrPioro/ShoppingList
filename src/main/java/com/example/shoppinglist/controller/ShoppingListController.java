@@ -35,8 +35,8 @@ public class ShoppingListController {
         return shoppingListService.getAllShoppingList();
     }
 
-    @PostMapping("/addProduct")
-    public void addProductToList(@RequestParam("id") Long id, @RequestParam("product") Product product){
-        shoppingListService.addProductToList(id, product);
+    @PutMapping("/addProduct")
+    public void addProductToList(@RequestParam("id") Long id, @RequestParam("productId") Long productId){
+        shoppingListService.addProductToList(id, productId);
     }
 }
