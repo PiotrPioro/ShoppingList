@@ -13,22 +13,22 @@ public class ProductController {
 
     private final ProductService productService;
 
-    @PostMapping("/add")
+    @PostMapping
     public Product addProduct(@RequestBody Product product){
         return productService.addProduct(product);
     }
 
-    @GetMapping("/show")
-    public Product getProductById(@RequestParam("id") Long id){
+    @GetMapping("/{id}")
+    public Product getProductById(@PathVariable Long id){
         return productService.getProductById(id);
     }
 
-    @DeleteMapping("/delete")
-    public void deleteProduct(@RequestParam("id") Long id){
+    @DeleteMapping("/{id}")
+    public void deleteProduct(@PathVariable Long id){
         productService.deleteProduct(id);
     }
 
-    @GetMapping("/showAll")
+    @GetMapping
     public List<Product> getAllProducts(){
         return productService.getAllProducts();
     }
