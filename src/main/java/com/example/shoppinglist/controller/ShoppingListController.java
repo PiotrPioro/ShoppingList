@@ -5,6 +5,7 @@ import com.example.shoppinglist.service.ShoppingListService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/shoppingList")
@@ -19,7 +20,7 @@ public class ShoppingListController {
     }
 
     @GetMapping("/{id}")
-    public ShoppingList getShoppingListById(@PathVariable Long id){
+    public Optional<ShoppingList> getShoppingListById(@PathVariable Long id){
         return shoppingListService.getShoppingListById(id);
     }
 

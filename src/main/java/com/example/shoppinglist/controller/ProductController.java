@@ -5,6 +5,7 @@ import com.example.shoppinglist.service.ProductService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/product")
@@ -19,7 +20,7 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public Product getProductById(@PathVariable Long id){
+    public Optional<Product> getProductById(@PathVariable Long id){
         return productService.getProductById(id);
     }
 
